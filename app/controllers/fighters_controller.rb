@@ -1,0 +1,3 @@
+class FightersController < ApplicationController
+  
+end
