@@ -20,7 +20,7 @@ RSpec.describe 'Gyms index' do
         expect(page).to have_content("American Top Team, Cocunut Creek")
         expect(page).to have_content("Straight Blast Gym, Ireland")
 
-        save_and_open_page
+        # save_and_open_page
       end
     end
   end
