@@ -15,15 +15,18 @@ RSpec.describe 'Gyms show' do
         
         visit "/gyms/#{@akasj.id}"
 
-        expect(page).to have_content("American Kickboxing Academy, San Jose")
-        expect(page).to have_content("Gym ID: #{@akasj.id}")
-        expect(page).to have_content("Number of UFC Champions: 6")
-        expect(page).to have_content("Holds Current UFC Champion: true")
+        within ("#gym-show-#{@akasj.id}") do
+          expect(page).to have_content("American Kickboxing Academy, San Jose")
+          expect(page).to have_content("Gym ID: #{@akasj.id}")
+          expect(page).to have_content("Number of UFC Champions: 6")
+          expect(page).to have_content("Holds Current UFC Champion: true")
+        end
 
-        expect(page).to_not have_content("Texeira MMA & Fitness")
-        expect(page).to_not have_content("Gym ID: #{@tmmaf.id}")
-        expect(page).to_not have_content("Number of UFC Champions: 2")
-        expect(page).to_not have_content("Holds Current UFC Champion: true")
+
+        expect(page).to_not have_content("Straight Blast Gym, Ireland")
+        expect(page).to_not have_content("Gym ID: #{@sbgire.id}")
+        expect(page).to_not have_content("Number of UFC Champions: 1")
+        expect(page).to_not have_content("Holds Current UFC Champion: false")
         # save_and_open_page
       end
     end
