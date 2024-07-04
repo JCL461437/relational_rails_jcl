@@ -8,9 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-akasj = Gym.create!(name: "American Kickboxing Academy, San Jose")
-tmmaf = Gym.create!(name: "Texeira MMA & Fitness")
-topteamfl = Gym.create!(name: "American Top Team, Cocunut Creek")
-sbgire = Gym.create!(name: "Straight Blast Gym, Ireland")
+akasj = Gym.create!(name: "American Kickboxing Academy, San Jose", number_of_champions: 6, holds_current_champion: true)
+tmmaf = Gym.create!(name: "Texeira MMA & Fitness",  number_of_champions: 2, holds_current_champion: true)
+topteamfl = Gym.create!(name: "American Top Team, Cocunut Creek",  number_of_champions: 6, holds_current_champion: true)
+sbgire = Gym.create!(name: "Straight Blast Gym, Ireland",  number_of_champions: 1, holds_current_champion: false)
 
 puts "Successfully seeded."
