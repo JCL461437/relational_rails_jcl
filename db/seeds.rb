@@ -17,7 +17,7 @@ sbgire = Gym.create!(name: "Straight Blast Gym, Ireland",  number_of_champions: 
 
 khabib = Fighter.create!(name: "Khabib Nurmagomedov", age: 35, style: "Combat Sambo", active: false, gym: akasj)
 islam = Fighter.create!(name: "Islam Makhachev", age: 32, style: "Combat Sambo", active: true, gym: akasj)
-dc = Fighter.create!(name: "Daniel Cormier", age: 45, style: "Wrestling", active: false, gym_: akasj)
+dc = Fighter.create!(name: "Daniel Cormier", age: 45, style: "Wrestling", active: false, gym: akasj)
 leon = Fighter.create!(name: "Leon Edwards", age: 32, style: "Striker", active: true, gym: akasj)
 
 teixeira = Fighter.create!(name: "Glover Teixeira", age: 44, style: "Brazilian Jiu-Jitsu", active: false, gym: tmmaf)
