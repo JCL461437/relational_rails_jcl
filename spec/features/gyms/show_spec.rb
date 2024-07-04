@@ -18,12 +18,12 @@ RSpec.describe 'Gyms show' do
         expect(page).to have_content("American Kickboxing Academy, San Jose")
         expect(page).to have_content("Gym ID: #{@akasj.id}")
         expect(page).to have_content("Number of UFC Champions: 6")
-        expect(page).to have_content("Holds Current UFC Champion: Yes")
+        expect(page).to have_content("Holds Current UFC Champion: true")
 
         expect(page).to_not have_content("Texeira MMA & Fitness")
         expect(page).to_not have_content("Gym ID: #{@tmmaf.id}")
         expect(page).to_not have_content("Number of UFC Champions: 2")
-        expect(page).to_not have_content("Holds Current UFC Champion: Yes")
+        expect(page).to_not have_content("Holds Current UFC Champion: true")
         # save_and_open_page
       end
     end
