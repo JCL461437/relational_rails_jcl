@@ -1,9 +1,6 @@
 require "rails_helper"
 
-RSpec.describe 'Fighter index' do
-  describe 'relationships' do
-    it {should belong_to :gym}
-  end
+RSpec.describe 'Gyms index' do
 
   before :each do
     @akasj = Gym.create!(name: 'American Kickboxing Academy, San Jose')
