@@ -16,9 +16,11 @@ RSpec.describe 'Gyms index' do
         visit "/gyms"
 
         expect(page).to have_content("American Kickboxing Academy, San Jose")
-        expect(page).to have_content("Texeira MMA & Fitnesse")
+        expect(page).to have_content("Texeira MMA & Fitness")
         expect(page).to have_content("American Top Team, Cocunut Creek")
-        expect(page).to have_content("'Straight Blast Gym, Ireland")
+        expect(page).to have_content("Straight Blast Gym, Ireland")
+
+        save_and_open_page
       end
     end
   end
