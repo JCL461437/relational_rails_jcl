@@ -2,6 +2,9 @@
 
 <div>
   <% @gyms.each do |gym| %>
-    <h3> <%= gym.name %> </h3>
+    <div id="gym-<%@gym.id%>">
+      <h3> <%= gym.name %> </h3>
+      <h4> <%= gym.created_at %> </h4>
+    </div>
   <% end %>
 </div>
