@@ -22,6 +22,22 @@ RSpec.describe 'Gyms index' do
 
         # save_and_open_page
       end
+
+      xit 'display the records ordered by most recently created' do
+        
+        visit "/gyms"
+        
+        within ("#gym-#{@akasj.id}") do
+          expect(page).to have_content("American Kickboxing Academy, San Jose")
+          
+        end
+
+          expect(page).to have_content("Texeira MMA & Fitness")
+          expect(page).to have_content("American Top Team, Cocunut Creek")
+          expect(page).to have_content("Straight Blast Gym, Ireland")
+
+        #how to test order? shovel records in array and make sure index 0 is the most recently created at?
+      end
     end
   end
 end
