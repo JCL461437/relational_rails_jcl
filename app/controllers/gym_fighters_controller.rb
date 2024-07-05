@@ -1,5 +1,6 @@
 class GymFightersController < ApplicationController
   def index
-    @gyms = Gym.all
-    @fighters = @gyms.fighters.all
+    @gym = Gym.find(params[:id])
+    @fighters = @gym.fighters
   end
+end
