@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "/gyms", to: "gyms#index"
   get "/gyms/:id", to: "gyms#show"
+  get "/gyms/new", to: "gyms#new"
 
   get "gyms/:id/fighters", to: "gym_fighters#index"
 
