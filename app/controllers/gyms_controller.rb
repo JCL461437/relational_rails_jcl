@@ -5,5 +5,6 @@ class GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
+    @fighter_count = @gym.fighters.count
   end
 end
