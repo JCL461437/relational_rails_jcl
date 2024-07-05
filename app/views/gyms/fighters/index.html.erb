@@ -1,0 +1,16 @@
+
+<% @gyms.each do |gym| %> 
+  <h2> <%= gym.name %> </h2>
+  <h3> Fighters </h3>
+  <div>
+    <% gym.each do |fighter| %>
+      <div id="fighter-<%=fighter.id%>">
+        <h2> <%= fighter.name %> </h2>
+        <p> Fighter Age: <%= fighter.age %> </p>
+        <p> Fighting Style:  <%= fighter.style %> </p>
+        <p> Currently Active: <%= fighter.active %> </p>
+        <br>
+      </div>
+    <% end %>
+  </div>
+<% end %>
