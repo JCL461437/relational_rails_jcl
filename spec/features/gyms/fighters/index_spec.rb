@@ -25,6 +25,8 @@ RSpec.describe 'Gym fighter index' do
       it 'displays the fighters associated with that gym and each fighters attributes' do
         
         visit "/gyms/#{@akasj.id}/fighters"
+        
+        expect(page).to have_content(@akasj.name)
 
         within ("#fighter-#{@khabib.id}") do
           expect(page).to have_content(@khabib.name)
@@ -32,17 +34,19 @@ RSpec.describe 'Gym fighter index' do
           expect(page).to have_content("Fighting Style: #{@khabib.style}")
           expect(page).to have_content("Currently Active: #{@khabib.active}")
 
-          expect(page).to_not have_content(@islam.name)
-          expect(page).to have_content("Fighter Age: #{@islam.age}")
-          expect(page).to have_content("Fighting Style: #{@islam.style}")
-          expect(page).to have_content("Currently Active: #{@islam.active}")
+          expect(page).to_not have_content(@leon.name)
+          expect(page).to_not have_content("Fighter Age: #{@leon.age}")
+          expect(page).to_not have_content("Fighting Style: #{@leon.style}")
+          expect(page).to_not have_content("Currently Active: #{@leon.active}")
 
           expect(page).to_not have_content(@evloev.name)
-          expect(page).to have_content("Fighter Age: #{@evloev.age}")
-          expect(page).to have_content("Fighting Style: #{@evloev.style}")
-          expect(page).to have_content("Currently Active: #{@evloev.active}")
+          expect(page).to_not have_content("Fighter Age: #{@evloev.age}")
+          expect(page).to_not have_content("Fighting Style: #{@evloev.style}")
+          expect(page).to_not have_content("Currently Active: #{@evloev.active}")
         end
 
+        expect(page).to_not have_content(@yoel.name)
+        expect(page).to_not have_content("Fighter Age: #{@yoel.age}")
       end
     end
   end
