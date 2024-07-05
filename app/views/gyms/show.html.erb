@@ -1,7 +1,10 @@
+<%= link_to "Gym Fighters Index Page", "/gyms/#{@gym.id}/fighters" %>
+
 <div>
   <h3> <%= @gym.name %> </h3>
   <p> Gym ID: <%= @gym.id %> <p>
   <p>Number of UFC Champions: <%= @gym.number_of_champions %> </p>
   <p>Holds Current UFC Champion: <%= @gym.holds_current_champion %> </p>
   <p>Number of Fighters: <%= @fighter_count %> </p>
+  <br>
 </div>

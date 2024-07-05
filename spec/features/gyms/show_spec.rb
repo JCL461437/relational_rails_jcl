@@ -58,6 +58,15 @@ RSpec.describe 'Gyms show' do
         expect(page).to have_content("Number of Fighters: 4")
         # save_and_open_page
       end
+
+      it 'displays a link to take me to the /gyms/:id/fighters page' do
+        
+        visit "/gyms/#{@akasj.id}"
+
+        expect(page).to have_link("Gym Fighters Index Page")
+        click_link "Gym Fighters Index Page"
+        expect(page).to have_current_path("/gyms/#{@akasj.id}/fighters")
+      end
     end
   end
 end
