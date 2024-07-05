@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "/gyms", to: "gyms#index"
   get "/gyms/:id", to: "gyms#show"
 
+  get "gyms/:id/fighters", to: "gym_fighters#index"
+
   get "/fighters", to: "fighters#index"
   get "/fighters/:id", to: "fighters#show"
 

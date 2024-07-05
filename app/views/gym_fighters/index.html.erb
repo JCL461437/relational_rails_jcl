@@ -1,9 +1,8 @@
-<h1> Fighters </h1>
-
 <div>
+  <h2> <%= @gym.name %> </h2>
   <% @fighters.each do |fighter| %>
     <div id="fighter-<%=fighter.id%>">
-      <h2> <%= fighter.name %> </h2>
+      <h3> <%= fighter.name %> </h3>
       <p> Fighter Age: <%= fighter.age %> </p>
       <p> Fighting Style:  <%= fighter.style %> </p>
       <p> Currently Active: <%= fighter.active %> </p>
