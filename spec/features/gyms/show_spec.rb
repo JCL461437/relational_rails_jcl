@@ -22,6 +22,19 @@ RSpec.describe 'Gyms show' do
 
   describe 'as a visitor' do
     describe 'when I visit /gyms/:id' do 
+
+      it 'has a link to go back to the fighter and gym index pages' do
+        visit "/gyms/#{@akasj.id}"
+
+        expect(page).to have_link("Gyms Index Page")
+        click_link "Gyms Index Page"
+        expect(page).to have_current_path("/gyms")
+
+        expect(page).to have_link("Fighters Index Page")
+        click_link "Fighters Index Page"
+        expect(page).to have_current_path("/fighters")
+      end
+
       it 'displays the gyms with its id and attributes' do
         
         visit "/gyms/#{@akasj.id}"
