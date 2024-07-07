@@ -1,0 +1,22 @@
+<h1>Update Fighter</h1>
+<div id="update-gym">
+  <%= form_with url: "/fighters/#{@fighter.id}", method: :patch, local: true do |form|%>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <br> 
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+
+    <br> 
+    <%= form.label :style %>
+    <%= form.text_field :style %>
+
+    <br> 
+    <%= form.label :active %>
+    <%= form.text_field :active %>
+    
+    <br> 
+    <%= form.submit "Update Fighter" %>
+  <% end %>
+</div>
