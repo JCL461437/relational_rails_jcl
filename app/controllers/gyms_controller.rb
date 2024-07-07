@@ -3,7 +3,6 @@ class GymsController < ApplicationController
     @gyms = Gym.order(created_at: :desc)
     @gyms = Gym.all
   end
-
   
   def new
   end
@@ -16,6 +15,16 @@ class GymsController < ApplicationController
     @new_gym.save
     
     redirect_to "/gyms"
+  end
+
+  def edit
+    @gym = Gym.find(params[:id])
+  end
+
+  def update
+    gym = Gym.find(params[:id])
+    gym.update(gym_params) #use of gym_params below instead of the long one above to visualize difference
+    redirect_to "/gyms/#{gym.id}"
   end
   
   def show
