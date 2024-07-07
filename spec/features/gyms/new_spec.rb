@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe 'Gyms create' do
+RSpec.describe 'Gyms New' do
 
   before :each do
     @akasj = Gym.create!(name: "American Kickboxing Academy, San Jose", number_of_champions: 6, holds_current_champion: true)
@@ -23,7 +23,7 @@ RSpec.describe 'Gyms create' do
 
         expect(page).to have_link("New Gym")
 
-        click_link "Gyms Index Page"
+        click_link "New Gym"
         expect(page).to have_current_path("/gyms/new")
 
       end
@@ -39,8 +39,9 @@ RSpec.describe 'Gyms create' do
           click_button "Create Gym"
         end
 
+        new_gym_name = Gym.last.name # use that to see what the last gym that was created information is
         expect(page).to have_current_path("/gyms")
-        expect(page).to have_content()
+        expect(page).to have_content(new_gym_name)
 
       end
     end
