@@ -45,18 +45,17 @@ RSpec.describe 'Gym/Fighters New' do
 
         within ("#new-fighter") do
           fill_in 'name', with: 'Luke Rockhold'
-          fill_in 'age', with: '39'
+          fill_in 'age', with: 39
           fill_in 'style', with: 'Brazilian Jiu-Jitsu'
           fill_in 'active', with: 'false'
 
           click_button "Create Fighter"
         end
 
-        new_gym_name = Gym.last.name # use that to see what the last gym that was created information is
         expect(page).to have_current_path("/gyms/#{@akasj.id}/fighters")
         expect(page).to have_content("Luke Rockhold")
         expect(page).to have_content("Fighter Age: 39")
-        expect(page).to have_content("Fighting Sytle: Brazilian Jiu-Jitsu")
+        expect(page).to have_content("Fighting Style: Brazilian Jiu-Jitsu")
         expect(page).to have_content("Currently Active: false")
       end
     end
