@@ -25,23 +25,23 @@ RSpec.describe 'Gym/Fighters New' do
     describe 'when I visit /gyms/:id/fighters' do 
       it 'displays a link to create a new gym' do
         
-        visit "/gyms/#{@akasj}/fighters"
+        visit "/gyms/#{@akasj.id}/fighters"
 
         expect(page).to have_link("Create Fighter")
       end
 
       it 'takes bring the user to /gyms/:id/fighter/new when Create Fighter link is clicked' do
-        visit "/gyms/#{@akasj}/fighters"
+        visit "/gyms/#{@akasj.id}/fighters"
 
         expect(page).to have_link("Create Fighter")
 
         click_link "Create Fighter"
-        expect(page).to have_current_path("/gyms/#{@akasj}/fighters/new")
+        expect(page).to have_current_path("/gyms/#{@akasj.id}/fighters/new")
 
       end
 
       it 'the user can fill out a form with a new fighter attributes and can submit it for it to be displayed on the gyms/:id/fighter index page' do
-        visit "/gyms/#{@akasj}/fighters/new"
+        visit "/gyms/#{@akasj.id}/fighters/new"
 
         within ("#new-fighter") do
           fill_in 'name', with: 'Luke Rockhold'
@@ -53,7 +53,7 @@ RSpec.describe 'Gym/Fighters New' do
         end
 
         new_gym_name = Gym.last.name # use that to see what the last gym that was created information is
-        expect(page).to have_current_path("/gyms/#{@akasj}/fighters")
+        expect(page).to have_current_path("/gyms/#{@akasj.id}/fighters")
         expect(page).to have_content("Luke Rockhold")
         expect(page).to have_content("Fighter Age: 39")
         expect(page).to have_content("Fighting Sytle: Brazilian Jiu-Jitsu")
