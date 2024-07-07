@@ -1,0 +1,22 @@
+<h1>New Fighter</h1>
+<div id="new-fighter">
+  <%= form_with url: "/gyms/#{@gym.id}/fighters", method: :post, local: true do |form|%>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <br> 
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+
+    <br> 
+    <%= form.label :style %>
+    <%= form.text_field :style %>
+
+    <br> 
+    <%= form.label :active %>
+    <%= form.text_field :active%>
+
+    <br> 
+    <%= form.submit "Create Fighter" %>
+  <% end %>
+</div>

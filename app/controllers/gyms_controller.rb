@@ -1,6 +1,6 @@
 class GymsController < ApplicationController
   def index
-    @gyms = Gym.order(created_at: :desc)
+    @gyms = Gym.order(created_at: :desc) #MVC infraction? 
     @gyms = Gym.all
   end
   

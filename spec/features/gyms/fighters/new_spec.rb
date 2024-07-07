@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe 'Fighters show' do
-  
+RSpec.describe 'Gym/Fighters New' do
+
   before :each do
     @akasj = Gym.create!(name: "American Kickboxing Academy, San Jose", number_of_champions: 6, holds_current_champion: true)
     @tmmaf = Gym.create!(name: "Texeira MMA & Fitness",  number_of_champions: 2, holds_current_champion: true)
@@ -22,18 +22,41 @@ RSpec.describe 'Fighters show' do
   end
 
   describe 'as a visitor' do
-    describe 'when I visit /fighters/:id' do 
-      it 'shows the child with that id and all of its attributes' do
+    describe 'when I visit /gyms/:id/fighters' do 
+      it 'displays a link to create a new gym' do
         
-        visit "/fighters/#{@khabib.id}"
+        visit "/gyms/#{@akasj.id}/fighters"
 
-        expect(page).to have_content(@khabib.name)
-        expect(page).to have_content("Fighter Age: #{@khabib.age}")
-        expect(page).to have_content("Fighting Style: #{@khabib.style}")
-        expect(page).to have_content("Currently Active: #{@khabib.active}")
+        expect(page).to have_link("Create Fighter")
+      end
 
-        expect(page).to_not have_content(@evloev.name)
-        # save_and_open_page
+      it 'takes bring the user to /gyms/:id/fighter/new when Create Fighter link is clicked' do
+        visit "/gyms/#{@akasj.id}/fighters"
+
+        expect(page).to have_link("Create Fighter")
+
+        click_link "Create Fighter"
+        expect(page).to have_current_path("/gyms/#{@akasj.id}/fighters/new")
+
+      end
+
+      it 'the user can fill out a form with a new fighter attributes and can submit it for it to be displayed on the gyms/:id/fighter index page' do
+        visit "/gyms/#{@akasj.id}/fighters/new"
+
+        within ("#new-fighter") do
+          fill_in 'name', with: 'Luke Rockhold'
+          fill_in 'age', with: 39
+          fill_in 'style', with: 'Brazilian Jiu-Jitsu'
+          fill_in 'active', with: 'false'
+
+          click_button "Create Fighter"
+        end
+
+        expect(page).to have_current_path("/gyms/#{@akasj.id}/fighters")
+        expect(page).to have_content("Luke Rockhold")
+        expect(page).to have_content("Fighter Age: 39")
+        expect(page).to have_content("Fighting Style: Brazilian Jiu-Jitsu")
+        expect(page).to have_content("Currently Active: false")
       end
     end
   end
