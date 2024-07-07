@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post "gyms/:id/fighters", to: "gym_fighters#create"
 
   get "/fighters", to: "fighters#index"
+  get "/fighters/:id/edit", to: "fighters#edit"
+  patch "/fighters/:id", to: "fighters#update"
   get "/fighters/:id", to: "fighters#show"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

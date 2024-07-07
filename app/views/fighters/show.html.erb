@@ -3,5 +3,6 @@
   <p> Fighter Age: <%= @fighter.age %> </p>
   <p> Fighting Style:  <%= @fighter.style %> </p>
   <p> Currently Active: <%= @fighter.active %> </p>
+  <p> <%= link_to "Update Fighter", "/fighters/#{@fighter.id}/edit" %> </p>
   <br>
 </div>
