@@ -4,11 +4,11 @@
     <div id="fighter-<%=fighter.id%>">
       <h3> <%= fighter.name %> </h3>
       <p> Fighter Age: <%= fighter.age %> </p>
-      <p> Fighting Style:  <%= fighter.style %> </p>
+      <p> Fighting Style: <%= fighter.style %> </p>
       <p> Currently Active: <%= fighter.active %> </p>
       <br>
     </div>
   <% end %>
 </div>
 
-<%= link_to "Create Fighter", ":/gyms/#{@gym.id}/fighter/new" %>
+<%= link_to "Create Fighter", "/gyms/#{@gym.id}/fighters/new" %>
