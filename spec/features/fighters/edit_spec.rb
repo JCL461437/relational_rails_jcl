@@ -48,7 +48,7 @@ RSpec.describe 'the Fighters edit' do
     click_button 'Update Fighter'
 
     expect(current_path).to eq("/fighters/#{@khabib.id}")
-    expect(page).to have_content("Khabib Khabib Nurmagomedov")
+    expect(page).to have_content("Khabib Nurmagomedov")
     expect(page).to have_content("Fighting Style: Combat Sambo")
   end
 end
