@@ -6,5 +6,6 @@
   <p>Number of UFC Champions: <%= @gym.number_of_champions %> </p>
   <p>Holds Current UFC Champion: <%= @gym.holds_current_champion %> </p>
   <p>Number of Fighters: <%= @fighter_count %> </p>
+  <p> <%= link_to "Update Gym", "/gyms/#{@gym.id}/edit" %> </p>
   <br>
 </div>
