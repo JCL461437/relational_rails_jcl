@@ -27,7 +27,7 @@ RSpec.describe 'the Fighters edit' do
 
     click_link "Update Fighter"
 
-    expect(current_path).to eq("/fighter/#{@khabib.id}/edit")
+    expect(current_path).to eq("/fighters/#{@khabib.id}/edit")
   end
 
   it 'can edit the fighter' do
