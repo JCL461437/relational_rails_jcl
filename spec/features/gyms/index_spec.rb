@@ -32,7 +32,7 @@ RSpec.describe 'Gyms index' do
         expect(page).to have_content("American Top Team, Cocunut Creek")
         expect(page).to have_content("Straight Blast Gym, Ireland")
 
-        expect("#{@sbgire.name}").to appear_before("#{@akasj.name}")
+        expect("#{@akasj.name}").to appear_before("#{@sbgire.name}")
         #how to test order? shovel records in array and make sure index 0 is the most recently created at?
         #orderly MAN!
       end
