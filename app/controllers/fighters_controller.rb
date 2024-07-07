@@ -9,12 +9,16 @@ class FightersController < ApplicationController
 
   def update
     fighter = Fighter.find(params[:id])
-    fighter.update(:name, :age, :style, :active) #use of gym_params below instead of the long one above to visualize difference
+    fighter.update(fighter_params) #use of fighter_params because just putting params did not work? 
     redirect_to "/fighters/#{fighter.id}"
   end
 
   def show
     @fighter = Fighter.find(params[:id])
   end
-  
+
+  private
+    def fighter_params
+      params.permit(:name, :age, :style, :active)
+    end
 end
