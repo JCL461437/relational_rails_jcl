@@ -1,7 +1,11 @@
 class GymFightersController < ApplicationController
   def index
     @gym = Gym.find(params[:id])
-    @fighters = @gym.fighters
+    if params[:order].present? # use conditional to check if :order is present in the params, send through with query params syntax
+      @ordered_fighters = @gym.fighters.order(:name)
+    else
+      @fighters = @gym.fighters #if order is not present in query params then it will list the fighters in order or create_at like before
+    end
   end
 
   def new
