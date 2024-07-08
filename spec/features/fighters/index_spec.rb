@@ -13,7 +13,7 @@ RSpec.describe 'Fighter index' do
     @dc = Fighter.create!(name: "Daniel Cormier", age: 45, style: "Wrestling", active: false, gym: @akasj)
     @leon = Fighter.create!(name: "Leon Edwards", age: 32, style: "Striker", active: true, gym: @akasj)
     @teixeira = Fighter.create!(name: "Glover Teixeira", age: 44, style: "Brazilian Jiu-Jitsu", active: false, gym: @tmmaf)
-    @pereira = Fighter.create!(name: "Alex Pereira", age: 37, style: "Kickboxing", active: false, gym: @tmmaf)
+    @pereira = Fighter.create!(name: "Alex Pereira", age: 37, style: "Kickboxing", active: true, gym: @tmmaf)
     @pantoja = Fighter.create!(name: "Alexandre Patoja", age: 34, style: "Brazilian Jiu-Jitsu", active: true, gym: @topteamfl)
     @woodley = Fighter.create!(name: "Tyron Woodley", age: 42, style: "Wrestling", active: false, gym: @topteamfl)
     @yoel = Fighter.create!(name: "Yoel Romero", age: 47, style: "Wrestling", active: false, gym: @topteamfl)
@@ -27,11 +27,11 @@ RSpec.describe 'Fighter index' do
         
         visit "/fighters"
 
-        within ("#fighter-#{@khabib.id}") do
-          expect(page).to have_content(@khabib.name)
-          expect(page).to have_content("Fighter Age: #{@khabib.age}")
-          expect(page).to have_content("Fighting Style: #{@khabib.style}")
-          expect(page).to have_content("Currently Active: #{@khabib.active}")
+        within ("#fighter-#{@pereira.id}") do
+          expect(page).to have_content(@pereira.name)
+          expect(page).to have_content("Fighter Age: #{@pereira.age}")
+          expect(page).to have_content("Fighting Style: #{@pereira.style}")
+          expect(page).to have_content("Currently Active: #{@pereira.active}")
 
           expect(page).to_not have_content(@evloev.name)
         end

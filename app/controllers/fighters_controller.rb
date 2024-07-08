@@ -1,6 +1,7 @@
 class FightersController < ApplicationController
   def index
-    @fighters = Fighter.all
+    # @fighters = Fighter.all not used after us 15
+    @fighters = Fighter.only_true
   end
 
   def edit
