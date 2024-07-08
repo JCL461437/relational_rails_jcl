@@ -12,3 +12,7 @@
 </div>
 
 <%= link_to "Create Fighter", "/gyms/#{@gym.id}/fighters/new" %>
+<br>
+<%= link_to "Order Fighter By Name", "/gyms/#{@gym.id}/fighters?order=name" %>
+<br>
+<%= link_to "Order Fighter By Create At", "/gyms/#{@gym.id}/fighters" %>
