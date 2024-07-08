@@ -48,6 +48,21 @@ RSpec.describe 'Gym fighter index' do
         expect(page).to_not have_content(@yoel.name)
         expect(page).to_not have_content("Fighter Age: #{@yoel.age}")
       end
+
+      it 'has a link that will order the page by name' do
+        visit "/gyms/#{@akasj.id}/fighters"
+
+        expect(@khabib.name).to appear_before(@islam.name)
+        expect(@islam.name).to appear_before(@dc.name)
+        expect(@dc.name).to appear_before(@leon.name)
+
+        click_link "Order Fighter By Name"
+
+        expect(@dc.name).to appear_before(@islam.name)
+        expect(@islam.name).to appear_before(@khabib.name)
+        expect(@khabib.name).to appear_before(@leon.name)
+
+      end
     end
   end
 end
