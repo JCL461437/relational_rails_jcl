@@ -27,11 +27,11 @@ RSpec.describe 'Fighter index' do
         
         visit "/fighters"
 
-        within ("#fighter-#{@khabib.id}") do
-          expect(page).to have_content(@khabib.name)
-          expect(page).to have_content("Fighter Age: #{@khabib.age}")
-          expect(page).to have_content("Fighting Style: #{@khabib.style}")
-          expect(page).to have_content("Currently Active: #{@khabib.active}")
+        within ("#fighter-#{@pereira.id}") do
+          expect(page).to have_content(@pereira.name)
+          expect(page).to have_content("Fighter Age: #{@pereira.age}")
+          expect(page).to have_content("Fighting Style: #{@pereira.style}")
+          expect(page).to have_content("Currently Active: #{@pereira.active}")
 
           expect(page).to_not have_content(@evloev.name)
         end
