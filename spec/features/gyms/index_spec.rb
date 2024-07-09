@@ -41,13 +41,14 @@ RSpec.describe 'Gyms index' do
         visit "/gyms"
         
         # within block not working? 
-        # within ("#gym-#{@akasj.id}") do
+        # within ("gym-#{@akasj.id}") do
           expect(page).to have_content("American Kickboxing Academy, San Jose")
+          # expect(page).to_not have_content("Texeira MMA & Fitness")
 
           click_link "Update #{@akasj.name}"
-        # end
+        
 
-        expect(page).to have_current_path("/gyms/#{akasj.id}/edit")
+        expect(page).to have_current_path("/gyms/#{@akasj.id}/edit")
       end
 
       it 'can edit the gym' do
