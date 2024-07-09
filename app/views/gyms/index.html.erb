@@ -2,7 +2,7 @@
 
 <div>
   <% @gyms.each do |gym| %>
-    <div id="#<%gym.id%>">
+    <div id="gym-<%gym.id%>">
       <h3> <%= gym.name %> </h3>
       <h4> Created At: <%= gym.created_at %> </h4>
       <p> <%= link_to "Update #{gym.name}", "/gyms/#{gym.id}/edit" %> </p>
