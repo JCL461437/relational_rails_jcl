@@ -36,7 +36,7 @@ RSpec.describe 'Gyms index' do
         #orderly MAN!
       end
 
-      it 'display an update link specific to the parent next to each parent' do
+      it 'display an update link specific to the fighter next to each fighter' do
         
         visit "/gyms"
         
