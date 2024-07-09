@@ -18,7 +18,7 @@ RSpec.describe 'the Gyms edit' do
     expect(current_path).to eq("/gyms/#{@akasj.id}/edit")
   end
 
-  it 'can edit the artist' do
+  it 'can edit the gym' do
 
     visit "/gyms/#{@akasj.id}"
 
