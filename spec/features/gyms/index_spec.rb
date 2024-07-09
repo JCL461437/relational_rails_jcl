@@ -35,6 +35,41 @@ RSpec.describe 'Gyms index' do
         #how to test order? shovel records in array and make sure index 0 is the most recently created at?
         #orderly MAN!
       end
+
+      it 'display an update link specific to the parent next to each parent' do
+        
+        visit "/gyms"
+        
+        # within block not working? 
+        # within ("#gym-#{@akasj.id}") do
+          expect(page).to have_content("American Kickboxing Academy, San Jose")
+
+          click_link "Update #{@akasj.name}"
+        # end
+
+        expect(page).to have_current_path("/gyms/#{akasj.id}/edit")
+      end
+
+      it 'can edit the gym' do
+
+        visit "/gyms/#{@akasj.id}"
+
+        expect(page).to have_content('San Jose')
+
+        click_link "Update Gym"
+
+        expect(current_path).to eq("/gyms/#{@akasj.id}/edit")
+
+        fill_in 'name', with: 'Khabib Gym'
+        fill_in 'number_of_champions', with: '6'
+        fill_in 'holds_current_champion', with: 'true'
+
+        click_button 'Update Gym'
+
+        expect(current_path).to eq("/gyms/#{@akasj.id}")
+        expect(page).to have_content("Khabib Gym")
+        expect(page).to_not have_content("American Kickboxing Academy")
+      end
     end
   end
 end
