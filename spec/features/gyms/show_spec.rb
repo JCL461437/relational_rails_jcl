@@ -67,6 +67,18 @@ RSpec.describe 'Gyms show' do
         click_link "Gym Fighters Index Page"
         expect(page).to have_current_path("/gyms/#{@akasj.id}/fighters")
       end
+
+      it 'displays a link to delete this gym and upon clicking will delete the gym' do
+        
+        visit "/gyms/#{@akasj.id}"
+
+        expect(page).to have_link("Delete This Gym")
+        click_link "Delete This Gym"
+
+        save_and_open_page
+        expect(page).to have_current_path("/gyms")
+        expect(page).to_not have_content("#{@akasj.name}")
+      end
     end
   end
 end

@@ -35,6 +35,17 @@ RSpec.describe 'Fighters show' do
         expect(page).to_not have_content(@evloev.name)
         # save_and_open_page
       end
+
+      it 'displays a link to delete this fighter and upon clicking will delete the fighter' do
+        
+        visit "/fighters/#{@pantoja.id}"
+
+        expect(page).to have_button("Delete This Fighter")
+        click_button "Delete This Fighter"
+
+        expect(page).to have_current_path("/fighters")
+        expect(page).to_not have_content("#{@pantoja.name}")
+      end
     end
   end
 end
