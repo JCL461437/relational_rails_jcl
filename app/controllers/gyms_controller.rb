@@ -1,7 +1,7 @@
 class GymsController < ApplicationController
   def index
-    @gyms = Gym.order(created_at: :desc) #MVC infraction? 
-    @gyms = Gym.all
+    # @gyms = Gym.order(created_at: :desc) #MVC infraction? 
+    @gyms = Gym.order_by_most_recently_created
   end
   
   def new
