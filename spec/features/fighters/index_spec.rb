@@ -35,7 +35,43 @@ RSpec.describe 'Fighter index' do
 
           expect(page).to_not have_content(@evloev.name)
         end
+      end
 
+      it 'display an update link specific to the fighter next to each fighter' do
+        
+        visit "/fighters"
+        
+        # within block not working? 
+        within ("#fighter-#{@pereira.id}") do
+          expect(page).to have_content("Alex Pereira")
+          expect(page).to_not have_content("Glover Texeira")
+
+          click_link "Update #{@pereira.name}"
+        end
+
+        expect(page).to have_current_path("/fighters/#{@pereira.id}/edit")
+      end
+
+      it 'can edit the fighter' do
+
+        visit "/fighters"
+
+        expect(page).to have_content(37)
+
+        click_link "Update #{@pereira.name}"
+
+        expect(current_path).to eq("/fighters/#{@pereira.id}/edit")
+
+        fill_in 'name', with: 'Alex Pereira'
+        fill_in 'age', with: 36
+        fill_in 'style', with: 'Kickboxing'
+        fill_in 'active', with: 'true'
+
+        click_button 'Update Fighter'
+
+        expect(current_path).to eq("/fighters/#{@pereira.id}")
+        expect(page).to have_content(36)
+        expect(page).to_not have_content(37)
       end
     end
   end
