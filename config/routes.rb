@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post "/gyms", to: "gyms#create"
   get "/gyms/:id/edit", to: "gyms#edit"
   patch "/gyms/:id", to: "gyms#update"
+  delete "/gyms/:id", to: "gyms#destroy"
   get "/gyms/:id", to: "gyms#show"
 
   get "gyms/:id/fighters", to: "gym_fighters#index"
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get "/fighters", to: "fighters#index"
   get "/fighters/:id/edit", to: "fighters#edit"
   patch "/fighters/:id", to: "fighters#update"
+  delete "/fighters/:id", to: "gyms#destroy"
   get "/fighters/:id", to: "fighters#show"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
