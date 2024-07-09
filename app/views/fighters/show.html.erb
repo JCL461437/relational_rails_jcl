@@ -4,5 +4,6 @@
   <p> Fighting Style:  <%= @fighter.style %> </p>
   <p> Currently Active: <%= @fighter.active %> </p>
   <p> <%= link_to "Update Fighter", "/fighters/#{@fighter.id}/edit" %> </p>
+  <p> <%= button_to "Delete This Fighter", "/fighters/#{@fighter.id}", data: { turbo_method: :delete }%></p>
   <br>
 </div>

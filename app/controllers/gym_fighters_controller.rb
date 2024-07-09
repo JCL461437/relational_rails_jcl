@@ -18,7 +18,7 @@ class GymFightersController < ApplicationController
     style: params[:style], active: params[:active], gym: @gym}) 
     # you could do this long params or use the strong params option
     
-    @new_fighter.save
+    @new_fighter.save # redundant, create does both new and save
     
     redirect_to "/gyms/#{@gym.id}/fighters"
   end

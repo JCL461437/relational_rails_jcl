@@ -26,6 +26,14 @@ class GymsController < ApplicationController
     gym.update(gym_params) #use of gym_params below instead of the long one above to visualize difference
     redirect_to "/gyms/#{gym.id}"
   end
+
+  def destroy
+    # gym = Gym.find(params[:id])
+    Gym.destroy(params[:id])
+    # gym.destroy
+    
+    redirect_to '/gyms'
+  end
   
   def show
     @gym = Gym.find(params[:id])
